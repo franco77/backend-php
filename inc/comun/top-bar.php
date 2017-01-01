@@ -209,7 +209,7 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="perfil-user.php?id=<?php echo $_SESSION['id']; ?>"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="logs.php"><i class="fa fa-gear fa-fw"></i> Logs </a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="inc/php-comun/logout.php"><i class="fa fa-sign-out fa-fw"></i> Salir</a>

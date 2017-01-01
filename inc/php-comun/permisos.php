@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 require('conexion/conexion.php');
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
@@ -25,17 +23,17 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 
 
-<?php
-$nivel_admin=1;
-$nivel_user=2;
-$restrict='error.php';
-if (!((isset($_SESSION['username'])) && ($_SESSION['tipo_usuario'] == $nivel_admin))) {
-
-	$referrer = $_SERVER['PHP_SELF'];
-	urlencode($referrer);
-	header("Location: ". $restrict);
-
-	}
-        
-
- ?>
+		<?php
+		$nivel_admin                                                       =1;
+		$nivel_user                                                        =2;
+		$restrict                                                          ='error.php';
+		if (!((isset($_SESSION['username'])) && ($_SESSION['tipo_usuario'] == $nivel_admin))) {
+		
+		$referrer                                                          = $_SERVER['PHP_SELF'];
+		urlencode($referrer);
+		header("Location: ". $restrict);
+		
+		}
+		
+		
+		?>

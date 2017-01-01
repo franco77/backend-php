@@ -23,7 +23,15 @@
             
 
 
-
+<style>
+  .uploadButton, .multibox {
+   background: transparent;
+   border: none;
+   }
+   .multibox:hover {
+    background: transparent;
+}
+</style>
 
 
 
@@ -60,6 +68,12 @@
                                                 <div class="table-responsive">
                                                   <table width="100%" class="table table-bordered" id="table-edit">
                                                    <tbody>
+
+                                                      <tr>
+                                                      <th scope="col">Avatar</th>
+                                                      <th align="center"><img src="files/avatar/<?php echo $fila['avatar']; ?>" width="150" class="img-responsive img-circle" alt=""></th>
+                                                    </tr>
+
                                                     <tr>
                                                       <th scope="col">id</th>
                                                       <th><?php echo $fila['id']; ?></th>
@@ -96,7 +110,7 @@
                                                   </tbody>
                                                 </table>
                                                </div>
-
+                                                      <?php $foto_user = $fila['avatar']; ?>
                                                     <?php } } ?> 
                                             </div>
                                         </div>
@@ -126,6 +140,22 @@
                         </div>
                            <div class="panel-body">
                               <form name="edit_login" action="inc/edit/perfil.php" method="post">
+
+
+
+                                
+                                 <div class="form-group ">
+                                   <label class="control-label " for="usuario"> Avatar </label>
+                                    <div class="input-group">
+                                      <input class="form-control"  id="avatar" orakuploader="on" name="avatar" type="file"/>
+                                      </div>
+                                 </div>
+
+
+
+
+
+
                                  <div class="form-group ">
                                    <label class="control-label " for="usuario"> Usuario </label>
                                     <div class="input-group">

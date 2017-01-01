@@ -3,6 +3,7 @@ require('conexion/conexion.php');
 session_start();
 
 
+
 if(isset($_SESSION["username"])){
 		header("Location: panel.php");
 	}
@@ -13,39 +14,45 @@ if(isset($_SESSION["username"])){
 	{
 
 
-				$email = $_POST['email'];
-				$password = $_POST['password'];
-				$sha1_pass = sha1($password);
-				 
-					$sql = "SELECT * FROM $tb_usuarios WHERE email = '$email' AND password = '$sha1_pass' AND estado = 'Activo' ";
-					$result = $conexion->query($sql);
-					$rows = $result->num_rows;
+                               $email = $_POST['email'];
+                               $password = $_POST['password'];
+                               $sha1_pass = sha1($password);
+                               
+                               $sql = "SELECT * FROM $tb_usuarios WHERE email = '$email' AND password = '$sha1_pass' AND estado = 'Activo' ";
+                               $result = $conexion->query($sql);
+                               $rows = $result->num_rows;
+                               
+                               
+                               if ($rows > 0) { 
+                               $row = $result->fetch_assoc();    
+                               
+                               $_SESSION['loggedin'] = true;
+                               $_SESSION['id'] = $row['id'];
+                               $_SESSION['email'] = $email;
+                               $_SESSION['username'] = $row['usuario'];
+                               $_SESSION['tipo_usuario'] = $row['id_tipo'];
+                               $_SESSION['start'] = time();
+                               $_SESSION['expire'] = $_SESSION['start'] + (30 * 60);
+                               
+                               header("Location: panel.php");
+                               
+                               
+                               } 
+                               else 
+                               { 
+                               
+                               $error ="Algo Salio Mal Volver a Intentarlo";
+                               }
+                               // Logs 
+                               $tb=$tb_usuarios;                 
+                               $login_log='login';
+                               require('inc/php-comun/logs.php');
+                               
+                               
+                               }    
 
-
-				if ($rows > 0) { 
-						    $row = $result->fetch_assoc();    
-
-						    $_SESSION['loggedin'] = true;
-						    $_SESSION['id'] = $row['id'];
-						    $_SESSION['email'] = $email;
-                            $_SESSION['username'] = $row['usuario'];
-   						    $_SESSION['tipo_usuario'] = $row['id_tipo'];
-						    $_SESSION['start'] = time();
-						    $_SESSION['expire'] = $_SESSION['start'] + (30 * 60);
-
-						    header("Location: panel.php");
-
-						    
-				               } 
-				       else 
-				    { 
-
-				   $error ="Algo Salio Mal Volver a Intentarlo";
-				    }
-
-
-    }    
-
+   
+  
    mysqli_close($conexion); 
  ?>
 

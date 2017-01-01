@@ -1,4 +1,10 @@
+
 <?php require('inc/ver/all-dialogos.php'); ?>
+
+
+
+
+
 <div class="footer">
             <p>Citrux © 2016, All Rights Reserved
              <br>

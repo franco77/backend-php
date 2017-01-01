@@ -17,5 +17,10 @@ $sql = "INSERT INTO $tb_eventos SET titulo_evento='$titulo', nota_evento='$nota'
 
 }
 header("location: ../../eventos.php");
-mysqli_close($conexion);
+
+
+
+
+
+
 ?>

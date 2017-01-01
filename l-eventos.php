@@ -23,7 +23,7 @@
 
 
 
-
+     
          	        
      <?php require('inc/comun/footer.php'); ?>
 

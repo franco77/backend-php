@@ -11,11 +11,13 @@
 			$telefono=$_POST['telefono'];
 			$perfil=$_POST['perfil'];
 
+			$avatar=implode(',',$_POST['avatar']);
+
             $sha1_pass = sha1($password);
 
 
 			if (isset($_POST['edit'])) {
-			    $sql = "UPDATE tb_usuarios SET usuario ='$usuario', email ='$email', nombre ='$nombre', apellido ='$apellido', telefono ='$telefono', perfil ='$perfil' WHERE id = '$id'";
+			    $sql = "UPDATE tb_usuarios SET usuario ='$usuario', email ='$email', nombre ='$nombre', apellido ='$apellido', avatar = '$avatar', telefono ='$telefono', perfil ='$perfil' WHERE id = '$id'";
 			    $result = $conexion->query($sql);
 			} 
 

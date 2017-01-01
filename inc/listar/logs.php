@@ -1,14 +1,11 @@
- <?php 
-         $titulo    = 'Registro De Usuarios';
-         $subtitulo = 'Lista De Usuarios';         
-
-
-                $sql = "SELECT * FROM $tb_usuarios";
-                $result = $conexion->query($sql);
-                $rows = $result->num_rows;
-
-             
-?>
+    <?php 
+                
+                $titulo    = 'Registro De Logs';
+                $subtitulo = 'Lista De Logs';         
+                $sql       = "SELECT * FROM $tb_logs";
+                $result    = $conexion->query($sql);
+                $rows      = $result->num_rows;
+    ?>
 
             
 
@@ -32,7 +29,7 @@
                               
                                 <div class="row">
                                     <div class="col-lg-12">
-                       <div id="add-btn"><a href="a-usuarios.php" class="btn btn-primary"><i class="fa fa-plus"></i> Agregar Usuario</a></div>
+                       
                                         <div class="panel panel-default">
                                             <div class="panel-heading">
                                                 <?php echo $subtitulo; ?>
@@ -49,12 +46,13 @@
                                                         <tr>
                                                             <th>#</th>
                                                             <th>Usuario</th>
-                                                            <th>Email</th>
-                                                            <th>Password</th>
-                                                            <th>Nombre</th>
-                                                            <th>Apellido</th>
-                                                            <th>Telefono</th>
-                                                            <th>Acciones</th>
+                                                            <th>Tabla</th>
+                                                            <th>Nivel</th>
+                                                            <th>Ip</th>
+                                                            <th>Navegador</th>
+                                                            <th>Consulta</th>
+                                                            <th>Fecha</th>
+                                                            <th>Ver</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -62,19 +60,17 @@
                                                 foreach ($result as $fila) {
                                                 ?>  
                                                         <tr class="odd gradeX">
-                                                            <td><?php echo $fila['id']; ?></td>
-                                                            <td><?php echo $fila['usuario']; ?></td>
-                                                            <td><?php echo $fila['email']; ?></td>
-                                                            <td><?php echo $fila['password']; ?>4</td>
-                                                            <td><?php echo $fila['nombre']; ?></td>
-                                                            <td><?php echo $fila['apellido']; ?></td>
-                                                            <td><?php echo $fila['telefono']; ?></td>
+                                                            <td><?php echo $fila['id_log']; ?></td>
+                                                            <td><?php echo $fila['usuario_log']; ?></td>
+                                                            <td><?php echo $fila['tabla_log']; ?></td>
+                                                            <td><?php echo $fila['nivel_log']; ?></td>
+                                                            <td><?php echo $fila['ip_log']; ?></td>
+                                                            <td><?php echo $fila['navegador_log']; ?></td>
+                                                            <td><?php echo $fila['consulta_log']; ?></td>
+                                                            <td><?php echo $fila['fecha_log']; ?></td>
                                                             <td>
                                                             <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#usuarios-<?php echo $fila['id']; ?>">
                                                             <i class="fa fa-search"></i></button>
-                                                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                                             <a data-href="inc/eliminar/usuario.php?id=<?php echo $fila['id']; ?>" data-toggle="modal" data-target="#confirm-delete" class="btn btn-danger btn-xs" href="#"><i class="fa fa-trash"></i></a>
-
                                                             </td>
                                                             
                                                         </tr>

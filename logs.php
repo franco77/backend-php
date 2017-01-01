@@ -15,7 +15,7 @@
 
 
 
-	<?php require('inc/listar/usuario.php'); ?>
+	<?php require('inc/listar/logs.php'); ?>
 
 
 

@@ -20,7 +20,12 @@
                     </div>
                 </div>
 
-
+<?php 
+if(isset($_GET['error']))
+{
+echo '<div id="error-1" class="alert alert-warning" role="alert">ERROR PERO NO SE PUDO REGISTRAR EL USUARIO. Revisa si el email ingresado no esta siendo utilizado por otro usuario</div>';
+ }
+ ?>
 
 
 
@@ -52,7 +57,9 @@
                                                       <div class="input-group">
                                                         <div class="input-group-addon"><i class="fa fa-envelope-o"></i></div>
                                                           <input class="form-control" id="email" name="email" type="text"/>
-                                                      </div>
+                                                        </div>
+                                                        <br/>
+                                                        <div id="alerta"></div>
                                                  </div>
 
                                                  <div class="form-group ">

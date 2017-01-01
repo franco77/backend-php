@@ -24,12 +24,13 @@
 
 
 
-
+ 
          
 	      <?php require('inc/comun/footer.php'); ?>	
-
+ 
     </div>
     
 
-   
+ 
 <?php require('inc/comun/js.php'); ?>
+<?php require('upload-php/avatar.php'); ?>  

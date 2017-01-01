@@ -13,13 +13,33 @@
 	$guardar  = $_POST['guardar_usuario'];
 
 	$sha1_pass = sha1($password);
+
+
+
+
+    $consulta      = "SELECT * FROM tb_usuarios WHERE email = '$email' ";
+	$result=$conexion->query($consulta);
+	$rows = $result->num_rows;
+
+    
+
+
+
 	
-	if(isset($guardar) && isset($usuario) && isset($email) && isset($password)){
+	if($rows == 0){
 	
 	$sql = "INSERT INTO $tb_usuarios SET usuario='$usuario', email='$email', password='$sha1_pass', nombre='$nombre', apellido='$apellido', telefono='$telefono', perfil='$pefil', id_tipo='$nivel'";
 	$conexion->query($sql);
+
+	header("location: ../../l-usuarios.php");
 	
 	}
-	header("location: ../../l-usuarios.php");
+
+	else
+	{
+
+    $error=1;
+    header("location: ../../a-usuarios.php?error=$error");
 	mysqli_close($conexion);
+	}
 	?>

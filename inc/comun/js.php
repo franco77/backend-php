@@ -3,6 +3,37 @@
  <script src="libs/vendor/jquery/jquery.min.js"></script>
  <script src="libs/vendor/bootstrap/js/bootstrap.min.js"></script>
  <script src="libs/vendor/metisMenu/metisMenu.min.js"></script>
+<script>
+$(document).ready(function() {
+    setTimeout(function() {
+        $("#error-1").fadeOut(2000);
+    },3000);
+});
+</script>
+
+<script>
+$(document).ready(function() {    
+    $('#email').blur(function(){
+
+        $('#alerta').html('<i class="fa fa-spinner fa-pulse fa-fw"></i>').fadeOut(1000);
+
+        var email = $(this).val();        
+        var dataString = 'email='+email;
+
+        $.ajax({
+            type: "POST",
+            url: "inc/php-comun/check_email.php",
+            data: dataString,
+            success: function(data) {
+                $('#alerta').fadeIn(1000).html(data);
+            }
+        });
+    });              
+});    
+</script>
+
+
+
 
  <script>
        $('#confirm-delete').on('show.bs.modal', function(e) {
@@ -80,6 +111,7 @@ password_1.onkeyup = validatePassword;
 			});
 		</script>
 
+<script src="upload-php/orakuploader.js"></script> 
 
 
 
@@ -95,6 +127,9 @@ password_1.onkeyup = validatePassword;
         });
     });
     </script>
+
+
+   
 
 </body>
 </html>

@@ -39,4 +39,6 @@
    <link rel="stylesheet" type="text/css" href="libs/vendor/elFinder/themes/moono/css/theme.css">
    
    <link rel="stylesheet" href="libs/vendor/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
+   <link rel="stylesheet" href="upload-php/orakuploader.css" />
 </head>
